@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { PersonService } from 'src/app/service-person/person.service';
+import { Router } from '@angular/router';
 
 interface IPerson {
   name: string;
@@ -17,7 +18,7 @@ interface IPerson {
 export class ListPeopleComponent implements OnInit {
   listPeople: IPerson[] = [];
 
-  constructor(private service: PersonService) {}
+  constructor(private service: PersonService, private router: Router) {}
 
   ngOnInit(): void {
     this.getPeople();
@@ -34,5 +35,9 @@ export class ListPeopleComponent implements OnInit {
 
   countList() {
     return this.listPeople.length;
+  }
+
+  addPerson() {
+    this.router.navigate(['/addPerson']);
   }
 }
