@@ -12,6 +12,10 @@ import { configHttpService } from 'src/app/modules/service/config-http.service';
   providedIn: 'root',
 })
 export class PersonService {
+  private headers = new HttpHeaders({
+    'Content-Type': 'application/json',
+  });
+
   constructor(
     private httpClient: HttpClient,
     private configHttpService: configHttpService
@@ -35,6 +39,18 @@ export class PersonService {
         `http://localhost:8080/api/person/${value}`,
         this.configHttpService.httpOptions()
       )
+      .pipe(catchError(this.configHttpService.handleError));
+  }
+
+  getAllPeople(): Observable<any> {
+    this.headers.append('Access-Control-Allow-Origin', 'http://localhost:4200');
+    this.headers.append('Access-Control-Allow-Credentials', 'true');
+    this.headers.append('GET', 'POST');
+
+    return this.httpClient
+      .get(`http://localhost:8080/api/person`, {
+        headers: this.headers,
+      })
       .pipe(catchError(this.configHttpService.handleError));
   }
 
