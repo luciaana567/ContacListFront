@@ -1,46 +1,48 @@
 
-<div class="body"></div>
 <div class="content">
-    <div fxFlex>
-        <mat-card class="padding-l-2 padding-r-2 padding-b-2">
+  <div fxFlex>
+        <mat-card>
             <mat-card-content>
                 <div >
                     <h1>Cadastre-se</h1>
                 </div>
                 <div>
-                    <div >
-                        <mat-form-field appearance="outline">
-                            <mat-label>Nome</mat-label>
-                            <input matInput [formControl]="formAdd.get('name')" type="text" placeholder="Maria" required>
-                            <mat-error
-                                *ngIf="formAdd.get('name').hasError('required') || formAdd.get('name').hasError('touched')">O campo é obrigatório</mat-error>
-                        </mat-form-field>
-                        <mat-form-field appearance="outline">
-                          <mat-label>Sobrenome</mat-label>
-                          <input matInput [formControl]="formAdd.get('lastName')" type="text" placeholder="Maria" required>
-                          <mat-error
-                              *ngIf="formAdd.get('lastName').hasError('required') || formAdd.get('lastName').hasError('touched')">O campo é obrigatório</mat-error>
-                        </mat-form-field>
-                      </div>
-                      <div >
-                        <mat-form-field appearance="outline">
-                            <mat-label>CPF</mat-label>
-                            <input matInput [formControl]="formAdd.get('cpf')" type="text" mask="000.000.000-00" [showMaskTyped]="true" required>
-                            <mat-error
-                                *ngIf="formAdd.get('cpf').hasError('required') || formAdd.get('cpf').hasError('touched')">O campo é obrigatório</mat-error>
-                        </mat-form-field>
-                        <mat-form-field appearance="outline">
-                          <mat-label>Data</mat-label>
-                          <input matInput [formControl]="formAdd.get('date')" type="date" required>
-                          <mat-error
-                              *ngIf="formAdd.get('date').hasError('required') || formAdd.get('date').hasError('touched')">O campo é obrigatório</mat-error>
-                      </mat-form-field>
-                      </div>
+                  <form [formGroup]="formAdd" class="form">
+                    <mat-form-field class="full-width"  appearance="outline">
+                      <mat-label>Nome</mat-label>
+                      <input type="text" matInput formControlName="name">
+                      <mat-error *ngIf="formAdd.controls['name'].hasError('required')">
+                        Insira um nome
+                      </mat-error>
+                    </mat-form-field>
+
+                    <mat-form-field class="full-width"  appearance="outline">
+                      <mat-label>Sobrenome</mat-label>
+                      <input type="text" matInput formControlName="lastName">
+                      <mat-error *ngIf="formAdd.controls['lastName'].hasError('required')">
+                        Insira um sobrenome
+                      </mat-error>
+                    </mat-form-field>
+                    <mat-form-field class="full-width"  appearance="outline">
+                      <mat-label>CPF</mat-label>
+                      <input type="text" matInput formControlName="cpf" mask="000.000.000-00" [showMaskTyped]="true" >
+                      <mat-error *ngIf="formAdd.controls['cpf'].hasError('required')">
+                        Insira um CPF
+                      </mat-error>
+                    </mat-form-field>
+                    <mat-form-field class="full-width"  appearance="outline">
+                      <mat-label>Data de nascimento</mat-label>
+                      <input type="date" matInput formControlName="date">
+                      <mat-error *ngIf="formAdd.controls['lastName'].hasError('required')">
+                        Insira sua data de nascimento
+                      </mat-error>
+                    </mat-form-field>
+                  </form>
                 </div>
             </mat-card-content>
             <mat-card-actions>
               <div>
-                <button mat-raised-button [disabled]="formAdd.invalid" (click)="add()">Continuar</button>
+                <button mat-raised-button [disabled]="formAdd.invalid" (click)="add()">Cadastrar</button>
               </div>
             </mat-card-actions>
         </mat-card>

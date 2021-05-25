@@ -1,0 +1,26 @@
+<div class="header">
+  <h3>Lista de contatos -- {{name}}</h3>
+  <div class="header-right">
+    <a routerLink="/addPerson">Adicionar contato</a>
+  </div>
+</div>
+<div class="body">
+  <div class="contact-list" *ngIf="countList() > 0">
+    <div>
+      <mat-selection-list #contacts [multiple]="false">
+        <mat-list-option class="element-list" *ngFor="let contact of listContact" [value]="contact.contactId" disableRipple>
+          <h4>{{contact.value}}</h4>
+          <div>
+            <mat-icon (click)="editContact(contact)" class="div-icon-1" aria-hidden="false" aria-label="Example home icon">edit</mat-icon>
+            <mat-icon  (click)="delete(contact)" class="div-icon-2" aria-hidden="false" aria-label="Example home icon">delete</mat-icon>
+          </div>
+        </mat-list-option>
+      </mat-selection-list>
+    </div>
+  </div>
+  <div class="noData" *ngIf="countList() === 0">
+    <img src="http://f5sys.com/img/no-data.svg">
+    <p>Nenhum contato adicionado!</p>
+  </div>
+
+</div>
