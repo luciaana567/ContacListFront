@@ -40,16 +40,30 @@ a {
   margin-top: 10%;
   margin-left: 20%;
   width: 70%;
+  min-width: 40%;
   position: fixed;
+  border-radius: 3px;
+  box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.24), 0 8px 10px 0 rgba(0, 0, 0, 0.19);
+  align-items: center;
+  justify-content: center;
+}
+
+mat-selection-list {
+  width: 80%;
+  min-height: 90%;
+  margin-left: 10%;
+  margin-right: 10%;
+  margin-bottom: 30%;
+  margin-top: 5%;
 }
 
 .element-list {
-  width: 55%;
+  width: 65%;
   height: 35px;
   background-color: rgb(230, 230, 230);
   border-radius: 3px;
   box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.24), 0 8px 10px 0 rgba(0, 0, 0, 0.19);
-  margin-bottom: 2%;
+  margin-bottom: 1px;
 }
 
 .element-list h4 {

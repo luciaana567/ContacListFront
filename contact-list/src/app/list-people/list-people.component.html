@@ -6,18 +6,18 @@
 </div>
 <div class="body">
   <div class="person-list" *ngIf="countList() > 0">
-    <mat-selection-list #person [multiple]="false">
-      <mat-list-option class="element-list" *ngFor="let person of listPeople" [value]="person.id">
+    <mat-selection-list #people [multiple]="false">
+      <mat-list-option class="element-list" *ngFor="let person of listPeople" [value]="person.id" disableRipple>
         <h4>{{person.name}}</h4>
         <div>
-          <mat-icon class="div-icon-1" aria-hidden="false" aria-label="Example home icon">edit</mat-icon>
-          <mat-icon  class="div-icon-2" aria-hidden="false" aria-label="Example home icon">folder</mat-icon>
+          <mat-icon (click)="editPerson(person)" class="div-icon-1" aria-hidden="false" aria-label="Example home icon">edit</mat-icon>
+          <mat-icon (click)="listContacts(person)" class="div-icon-2" aria-hidden="false" aria-label="Example home icon">folder</mat-icon>
         </div>
       </mat-list-option>
     </mat-selection-list>
   </div>
   <div class="noData" *ngIf="countList() === 0">
-    <img src="https://lh3.googleusercontent.com/proxy/72ocdjp6G8KdFBXB75XdHHN7ELzUGnxLyZszqfysThvOF_OWKt26Ev2_Annqcv02qCVSLSRTUnpgqZApiG0ok2T4DmAR_4z5joZomWW1Bw">
+    <img src="http://f5sys.com/img/no-data.svg">
     <p>Nenhum contato adicionado!</p>
   </div>
 

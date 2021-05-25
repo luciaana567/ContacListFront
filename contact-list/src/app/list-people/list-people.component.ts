@@ -37,7 +37,14 @@ export class ListPeopleComponent implements OnInit {
     return this.listPeople.length;
   }
 
-  addPerson() {
-    this.router.navigate(['/addPerson']);
+  editPerson(person: any) {
+    localStorage.setItem('personEdit', `${person.personId}`);
+    this.router.navigate([`/editPerson`]);
+  }
+
+  listContacts(person: any) {
+    localStorage.setItem('personIdContacts', `${person.personId}`);
+    localStorage.setItem('personContact', `${person}`);
+    this.router.navigate([`/listContact`]);
   }
 }
