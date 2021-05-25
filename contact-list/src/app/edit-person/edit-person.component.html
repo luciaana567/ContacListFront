@@ -1,0 +1,50 @@
+
+<div class="content">
+  <div fxFlex>
+        <mat-card>
+            <mat-card-content>
+                <div >
+                    <h1>Editar</h1>
+                </div>
+                <div>
+                  <form [formGroup]="formEdit" class="form">
+                    <mat-form-field class="full-width"  appearance="outline">
+                      <mat-label>Nome</mat-label>
+                      <input type="text" matInput formControlName="name">
+                      <mat-error *ngIf="formEdit.controls['name'].hasError('required')">
+                        Insira um nome
+                      </mat-error>
+                    </mat-form-field>
+
+                    <mat-form-field class="full-width"  appearance="outline">
+                      <mat-label>Sobrenome</mat-label>
+                      <input type="text" matInput formControlName="lastName">
+                      <mat-error *ngIf="formEdit.controls['lastName'].hasError('required')">
+                        Insira um sobrenome
+                      </mat-error>
+                    </mat-form-field>
+                    <mat-form-field class="full-width"  appearance="outline">
+                      <mat-label>CPF</mat-label>
+                      <input type="text" matInput formControlName="cpf" mask="000.000.000-00" [showMaskTyped]="true" >
+                      <mat-error *ngIf="formEdit.controls['cpf'].hasError('required')">
+                        Insira um CPF
+                      </mat-error>
+                    </mat-form-field>
+                    <mat-form-field class="full-width"  appearance="outline">
+                      <mat-label>Data de nascimento</mat-label>
+                      <input type="date" matInput formControlName="date">
+                      <mat-error *ngIf="formEdit.controls['lastName'].hasError('required')">
+                        Insira sua data de nascimento
+                      </mat-error>
+                    </mat-form-field>
+                  </form>
+                </div>
+            </mat-card-content>
+            <mat-card-actions>
+              <div>
+                <button mat-raised-button [disabled]="formEdit.invalid" (click)="edit()">Editar</button>
+              </div>
+            </mat-card-actions>
+        </mat-card>
+    </div>
+</div>
