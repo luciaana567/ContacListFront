@@ -21,12 +21,12 @@ export class ContactService {
     private configHttpService: configHttpService
   ) {}
 
-  postPerson(value: any): Observable<any> {
+  postContact(value: any): Observable<any> {
     const body = JSON.stringify(value);
     const headers = new HttpHeaders().set('Content-Type', 'application/json');
 
     return this.httpClient
-      .post(`http://localhost:8080/api/contact`, body, {
+      .post(`http://3.16.41.214:8080/api/contact`, body, {
         headers: headers,
         responseType: 'text',
       })
@@ -36,7 +36,7 @@ export class ContactService {
   getContactById(id: any): Observable<any> {
     return this.httpClient
       .get(
-        `http://localhost:8080/api/contact/${id}`,
+        `http://3.16.41.214:8080/api/contact/${id}`,
         this.configHttpService.httpOptions()
       )
       .pipe(catchError(this.configHttpService.handleError));
@@ -45,7 +45,7 @@ export class ContactService {
   getAllContactByPerson(id: any): Observable<any> {
     return this.httpClient
       .get(
-        `http://localhost:8080/api/contact/person/${id}`,
+        `http://3.16.41.214:8080/api/contact/person/${id}`,
         this.configHttpService.httpOptions()
       )
       .pipe(catchError(this.configHttpService.handleError));
@@ -57,7 +57,7 @@ export class ContactService {
     const headers = new HttpHeaders().set('Content-Type', 'application/json');
 
     return this.httpClient
-      .put(`http://localhost:8080/api/contact/${valueId}`, body, {
+      .put(`http://3.16.41.214:8080/api/contact/${valueId}`, body, {
         headers: headers,
         responseType: 'text',
       })
@@ -67,7 +67,7 @@ export class ContactService {
   deleteContactById(id: any): Observable<any> {
     return this.httpClient
       .delete(
-        `http://localhost:8080/api/contact/${id}`,
+        `http://3.16.41.214:8080/api/contact/${id}`,
         this.configHttpService.httpOptions()
       )
       .pipe(catchError(this.configHttpService.handleError));

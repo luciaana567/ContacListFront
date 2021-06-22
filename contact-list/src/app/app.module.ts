@@ -19,6 +19,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgxMaskModule } from 'ngx-mask';
 import { EditPersonComponent } from './edit-person/edit-person.component';
 import { ContactListComponent } from './contact-list/contact-list.component';
+import { AddContatoComponent } from './add-contato/add-contato.component';
+import {MatRadioModule, MAT_RADIO_DEFAULT_OPTIONS} from '@angular/material/radio';
+import { MatSelectModule } from '@angular/material/select'
 
 @NgModule({
   declarations: [
@@ -27,6 +30,7 @@ import { ContactListComponent } from './contact-list/contact-list.component';
     AddPersonComponent,
     EditPersonComponent,
     ContactListComponent,
+    AddContatoComponent,
   ],
   imports: [
     BrowserModule,
@@ -40,9 +44,14 @@ import { ContactListComponent } from './contact-list/contact-list.component';
     ReactiveFormsModule,
     MatSnackBarModule,
     BrowserAnimationsModule,
+    MatRadioModule,
+    MatSelectModule,
     NgxMaskModule.forRoot(),
   ],
-  providers: [DatePipe],
+  providers: [DatePipe,{
+    provide: MAT_RADIO_DEFAULT_OPTIONS,
+    useValue: { color: 'accent' },
+}],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

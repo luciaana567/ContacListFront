@@ -40,10 +40,14 @@ export class ContactListComponent implements OnInit {
 
   getContacts() {
     const id = localStorage.getItem('personIdContacts');
+    console.log(id)
     this.service.getAllContactByPerson(id).subscribe((succ: any) => {
-      succ.map((item: IContact) => {
-        this.listContact.push(item);
-      });
+      // succ.map((item: IContact) => {
+
+      //   this.listContact.push(item);
+      // });
+      console.log(succ)
+      this.listContact=succ;
     });
   }
 

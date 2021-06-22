@@ -4,6 +4,7 @@ import { AddPersonComponent } from './add-person/add-person.component';
 import { ListPeopleComponent } from './list-people/list-people.component';
 import { EditPersonComponent } from './edit-person/edit-person.component';
 import { ContactListComponent } from './contact-list/contact-list.component';
+import { AddContatoComponent } from './add-contato/add-contato.component'
 
 const routes: Routes = [
   {
@@ -21,6 +22,10 @@ const routes: Routes = [
   {
     path: 'addPerson',
     component: AddPersonComponent,
+  },
+   {
+    path: 'addContact',
+    component: AddContatoComponent,
   },
   {
     path: 'editPerson',

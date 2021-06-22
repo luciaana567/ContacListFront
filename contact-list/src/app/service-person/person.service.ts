@@ -28,7 +28,7 @@ export class PersonService {
     const headers = new HttpHeaders().set('Content-Type', 'application/json');
 
     return this.httpClient
-      .post(`http://localhost:8080/api/person`, body, {
+      .post(`http://3.16.41.214:8080/api/person`, body, {
         headers: headers,
         responseType: 'text',
       })
@@ -38,7 +38,7 @@ export class PersonService {
   getPersonById(id: any): Observable<any> {
     return this.httpClient
       .get(
-        `http://localhost:8080/api/person/${id}`,
+        `http://3.16.41.214:8080/api/person/${id}`,
         this.configHttpService.httpOptions()
       )
       .pipe(catchError(this.configHttpService.handleError));
@@ -47,7 +47,7 @@ export class PersonService {
   getAllPeople(): Observable<any> {
     return this.httpClient
       .get(
-        `http://localhost:8080/api/person`,
+        `http://3.16.41.214:8080/api/person`,
         this.configHttpService.httpOptions()
       )
       .pipe(catchError(this.configHttpService.handleError));
@@ -59,7 +59,7 @@ export class PersonService {
     const headers = new HttpHeaders().set('Content-Type', 'application/json');
 
     return this.httpClient
-      .put(`http://localhost:8080/api/person/${valueId}`, body, {
+      .put(`http://3.16.41.214:8080/api/person/${valueId}`, body, {
         headers: headers,
         responseType: 'text',
       })

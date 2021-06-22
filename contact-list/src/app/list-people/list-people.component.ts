@@ -43,6 +43,7 @@ export class ListPeopleComponent implements OnInit {
   }
 
   listContacts(person: any) {
+    console.log(person)
     localStorage.setItem('personIdContacts', `${person.personId}`);
     localStorage.setItem('personContact', `${person}`);
     this.router.navigate([`/listContact`]);

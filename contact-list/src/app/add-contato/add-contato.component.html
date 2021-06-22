@@ -1,0 +1,36 @@
+<div class="content">
+  <div fxFlex>
+    <mat-card>
+      <mat-card-content>
+        <div>
+          <h1>Contato</h1>
+        </div>
+        <div>
+          <form [formGroup]="formAdd" class="form">
+            <mat-form-field class="full-width" appearance="outline">
+              <mat-label>Contato</mat-label>
+              <input type="text" matInput formControlName="value">
+              <mat-error *ngIf="formAdd.controls['value'].hasError('required')">
+                Insira o contato
+              </mat-error>
+            </mat-form-field>
+
+            <mat-form-field appearance="fill">
+              <mat-label>tipo de contato</mat-label>
+              <select matNativeControl required>
+                <option value="EMAIL" (click)="type('EMAIL')">email</option>
+                <option value="CELL" (click)="type('CELL')">celular</option>
+                <option value="TELEPHONE" (click)="type('TELEPHONE')">telefone</option>
+              </select>
+            </mat-form-field>
+          </form>
+        </div>
+      </mat-card-content>
+      <mat-card-actions>
+        <div>
+          <button mat-raised-button (click)="add()">Cadastrar</button>
+        </div>
+      </mat-card-actions>
+    </mat-card>
+  </div>
+</div>
